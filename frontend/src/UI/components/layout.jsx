@@ -3,7 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Loader from './Loader'
 import { useUser } from '@clerk/clerk-react'
-import { useUserController } from '../../utils/user_Controller'
+import { useUserController } from '../../utils/User_Controller'
 import SkeletonLoader from './skeletonLoader'
 import { useNavigate } from 'react-router-dom'
 
