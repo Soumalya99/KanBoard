@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[build.lifecycle]
+  # Install dependencies in both frontend and backend before build
+  onPreBuild = "npm --prefix frontend install && npm --prefix backend install"

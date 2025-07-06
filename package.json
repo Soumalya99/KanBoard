@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "concurrently \"npm --prefix frontend run dev\" \"npm --prefix backend start\"",
-    "build": "concurrently \"npm --prefix frontend run build\" \"npm --prefix backend run build\""
+    "build": "concurrently \"npm --prefix frontend run build\" \"npm --prefix backend run build\"",
+    "postinstall": "npm --prefix frontend install && npm --prefix backend install"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
