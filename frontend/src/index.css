@@ -1,0 +1,100 @@
+@import "tailwindcss";
+#root {
+  @apply bg-black text-white box-border;
+  --dot-bg: rgb(5, 12, 40);
+  --dot-color: white;
+  --dot-size: 1.4px;
+  --dot-space: 22px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+  
+}
+
+
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    #f79359 20%,
+    #88adfd 30%,
+    #fb6955 70%,
+    #90f7f2 85%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  /* text-fill-color: transparent; */
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate-reverse;
+}
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-warn {
+  background: linear-gradient(
+    to right,
+    #f87272 20%,
+    #7fa6f9 30%,
+    #ef9879 70%,
+    #f9bcbc 80%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  background-size: 500% auto;
+  animation: textShine 3s ease-in-out infinite alternate;
+
+}
+
+
+
+/* .bg-dotted-matrix {
+
+  background:
+    linear-gradient(135deg, #678bdf 0%, #0f53c0 60%, #3b82f6 100%),
+
+    repeating-radial-gradient(circle at 0 0, #60a5fa 0.5px, transparent 2px, transparent 20px),
+    repeating-radial-gradient(circle at 100% 0, #60a5fa 0.5px, transparent 2px, transparent 20px),
+    repeating-radial-gradient(circle at 0 100%, #60a5fa 0.5px, transparent 2px, transparent 20px),
+    repeating-radial-gradient(circle at 100% 100%, #60a5fa 0.5px, transparent 2px, transparent 20px),
+    repeating-radial-gradient(circle, #60a5fa 0.5px, transparent 2px, transparent 40px);
+
+
+  mask-image:
+    radial-gradient(circle at 0 0, transparent 0, rgb(18, 75, 146) 80%),
+    radial-gradient(circle at 100% 0, transparent 0, rgb(18, 75, 146) 80%),
+    radial-gradient(circle at 0 100%, transparent 0, rgb(18, 75, 146) 80%),
+    radial-gradient(circle at 100% 100%, transparent 0, rgb(18, 75, 146) 80%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+  background-blend-mode: overlay;
+  background-size: cover, 40px 40px, 40px 40px, 40px 40px, 40px 40px, 40px 40px;
+  background-repeat: repeat;
+} */
+
+/* In your CSS file */
+.custom-drawer-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #3b82f6 100%);
+}
+
+/* Place this in your main CSS file (e.g., index.css or App.css) */
+[data-radix-popper-content-wrapper] {
+  z-index: 10000000000 !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
