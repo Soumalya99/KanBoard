@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { id } from 'date-fns/locale';
+import axios from 'axios'
 import { create } from 'zustand'
 
 /** Global Loading ki Dukaan || Global Loading Store */
@@ -609,7 +608,7 @@ export const useIssueAcrossMultSprint = create((set, get) => ({
                 }
             );
             const allIssue = data?.issues || [];
-            // console.log("data of project ",data);
+            console.log("data of project ",data);
             /** Set the assigned and reported issue */
             set({
                 allIssues: allIssue,
