@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "dev": "concurrently \"npm --prefix frontend run dev\" \"npm --prefix backend start\""
+    "dev": "concurrently \"npm --prefix frontend run dev\" \"npm --prefix backend start\"",
+    "build": "concurrently \"npm --prefix frontend run build\" \"npm --prefix backend run build\""
   }
 }
