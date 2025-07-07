@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { create } from 'zustand'
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 /** Global Loading ki Dukaan || Global Loading Store */
 export const useLoadingStore = create((set) => ({
@@ -31,7 +32,7 @@ export const useProjectsStore = create((set, get) => ({
         set({ loading: true, error : null });
         try {
             const res = await axios.post(
-                `http://localhost:4114/api/users/project`,
+                `${backendUrl}/api/users/project`,
                 payload, /** Payload receive from frontend */
                 {
                     headers: {
@@ -66,7 +67,7 @@ export const useProjectsStore = create((set, get) => ({
         try {
             const token = await getToken();
             const response = await axios.get(
-                `http://localhost:4114/api/users/project/${orgId}`,
+                `${backendUrl}/api/users/project/${orgId}`,
                 {
                     headers: token ? { Authorization: `Bearer ${token}` } : undefined,
                 }
@@ -89,7 +90,7 @@ export const useProjectsStore = create((set, get) => ({
         try {
             const token = await getToken();
             await axios.delete(
-                `http://localhost:4114/api/users/project/delete/${projectId}`,
+                `${backendUrl}/api/users/project/delete/${projectId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -133,7 +134,7 @@ export const useOrganizationStore = create((set, get) => ({
         try {
             const token = await getToken();
             const res = await axios.get(
-                `http://localhost:4114/api/users/org/${slug}`,
+                `${backendUrl}/api/users/org/${slug}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -169,7 +170,7 @@ export const useOrganizationStore = create((set, get) => ({
         try {
             const token = await getToken();
             const res = await axios.get(
-                `http://localhost:4114/api/users/org/users/${slug}`,
+                `${backendUrl}/api/users/org/users/${slug}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -215,7 +216,7 @@ export const useSprintStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.post(
-                `http://localhost:4114/api/users/project/create-sprint/${projId}`,
+                `${backendUrl}/api/users/project/create-sprint/${projId}`,
                 sprintData,
                 {
                     headers: {
@@ -248,7 +249,7 @@ export const useSprintStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.patch(
-                `http://localhost:4114/api/users/project/sprint/update/${sprintId}`,
+                `${backendUrl}/api/users/project/sprint/update/${sprintId}`,
                 {newStatus},// req from body
                 {
                     headers: {
@@ -305,7 +306,7 @@ export const useIssueStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.post(
-                `http://localhost:4114/api/users/project/${issuePayload.projId}/raise-issue`,
+                `${backendUrl}/api/users/project/${issuePayload.projId}/raise-issue`,
                 issuePayload,
                 {
                     headers: {
@@ -355,7 +356,7 @@ export const useIssueStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.get(
-                `http://localhost:4114/api/users/getIssues/${sprintId}`,
+                `${backendUrl}/api/users/getIssues/${sprintId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -386,7 +387,7 @@ export const useIssueStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.patch(
-                `http://localhost:4114/api/users/issues/update`,
+                `${backendUrl}/api/users/issues/update`,
                 newIssues,
                 {
                     headers: {
@@ -425,7 +426,7 @@ export const useIssueStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.put(
-                `http://localhost:4114/api/users/issues/${issueId}`,
+                `${backendUrl}/api/users/issues/${issueId}`,
                 updatedFields,
                 {
                     headers: {
@@ -478,7 +479,7 @@ export const useCommentStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.get(
-                `http://localhost:4114/api/users/issues/${issueId}/comments`,
+                `${backendUrl}/api/users/issues/${issueId}/comments`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -528,7 +529,7 @@ export const useCommentStore = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.post(
-                `http://localhost:4114/api/users/issues/${issueId}/create_comments`,
+                `${backendUrl}/api/users/issues/${issueId}/create_comments`,
                 commentData,
                 {
                     headers: {
@@ -600,7 +601,7 @@ export const useIssueAcrossMultSprint = create((set, get) => ({
         try {
             const token = await getToken();
             const { data } = await axios.get(
-                `http://localhost:4114/api/users/getIssues`,
+                `${backendUrl}/api/users/getIssues`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
