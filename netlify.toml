@@ -1,10 +1,7 @@
 [build]
+  base = "frontend"
   command = "npm run build"
-  publish = "frontend/dist"
+  publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
-
-[build.lifecycle]
-  # Install dependencies in both frontend and backend before build
-  onPreBuild = "npm --prefix frontend install && npm --prefix backend install"
+  VITE_BACKEND_URL = "https://kanboard-y501.onrender.com"
