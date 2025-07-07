@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { useCallback } from "react";
 import { useUserStore } from "../store/zustandStore";
 
-export const useUserController = () => {
+export default function useUserController() {
     const {isLoaded, isSignedIn, user} = useUser();
     const setUser = useUserStore(state => state.setUser);
     const clearUser = useUserStore(state => state.clearUser);
@@ -68,4 +68,4 @@ export const useUserController = () => {
     useEffect(() => {
         syncUser();
     },[syncUser])
-}
+};

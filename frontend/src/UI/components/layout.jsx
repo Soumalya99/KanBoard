@@ -2,10 +2,10 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import Loader from './Loader'
-import { useUser } from '@clerk/clerk-react'
-import { useUserController } from '../../utils/User_Controller'
-import SkeletonLoader from './skeletonLoader'
-import { useNavigate } from 'react-router-dom'
+// import { useUser } from '@clerk/clerk-react'
+import useUserController  from '../../utils/User_Controller'
+// import SkeletonLoader from './skeletonLoader'
+// import { useNavigate } from 'react-router-dom'
 
 function Layout({children}) {
   // const { isLoaded, isSignedIn, user } = useUser();
@@ -22,6 +22,6 @@ function Layout({children}) {
       <Footer />
     </div>
   )
-}
+};
 
 export default Layout
